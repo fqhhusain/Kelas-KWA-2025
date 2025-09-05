@@ -22,4 +22,48 @@ https://github.com/juice-shop/juice-shop
 
 # Step by step
 
+1. **Menjalankan Juice Shop**
+   - Gunakan Docker:  
+     ```bash
+     docker run --rm -p 127.0.0.1:3000:3000 bkimminich/juice-shop
+     ```
+   - Akses di browser: [http://localhost:3000](http://localhost:3000)
+
+2. **Membuka Halaman Login**
+   - Klik tombol **Account → Log in**
+   - Tersedia dua input: *Email* dan *Password*
+
+3. **Uji Input Injeksi**
+   - Pada field **Email/Username** masukkan payload:
+     ```
+     ' OR '1'='1' -- 
+     ```
+   - Password bisa diisi sembarang (karena akan diabaikan oleh query akibat komentar `--`).
+  
+  <img width="465" height="268" alt="image" src="https://github.com/user-attachments/assets/54d02b88-efbd-45c5-9bf4-bef7037f6fa1" />
+
+
+4. **Eksekusi**
+   - Klik **Log in**
+   - Jika berhasil, sistem melewati autentikasi dan langsung masuk sebagai admin@juice-sh.op.
+
+5. **Verifikasi**
+   - Cek menu **Account**
+   - Username terdeteksi sebagai admin@juice-sh.op
+
+<img width="312" height="325" alt="image" src="https://github.com/user-attachments/assets/d2f62dea-25ce-4b69-bbe4-478d1e732666" />
+
+
 # Catatan / Pembelajaran
+
+
+## Ringkasan
+Challenge **Login Admin** menunjukkan bagaimana sebuah form login yang tidak aman dapat dimanipulasi menggunakan **SQL Injection**. Dengan payload sederhana, penyerang bisa masuk sebagai **administrator** tanpa mengetahui kredensial asli.
+
+---
+
+## Konsep Serangan
+- **SQL Injection** terjadi ketika input user langsung dimasukkan ke query SQL tanpa validasi atau parameterisasi.
+- Payload `' OR '1'='1' --` membuat kondisi **WHERE** selalu bernilai benar:
+  ```sql
+  SELECT * FROM Users WHERE email = '' OR '1'='1' -- ' AND password = 'xyz';
