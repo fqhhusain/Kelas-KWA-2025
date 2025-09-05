@@ -14,7 +14,7 @@ https://portswigger.net/web-security/sql-injection/cheat-sheet <br/>
 https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-oracle
 # Step by step
 
-1. Use Burp Suite to intercept and modify the request that sets the product category filter.
+1. Modify the request that sets the product category filter.
 2. Determine the number of columns that are being returned by the query and which columns contain text data. Verify that the query is returning two columns, both of which contain text, using a payload like the following in the category parameter:
 ```
 '+UNION+SELECT+'abc','def'+FROM+dual--
