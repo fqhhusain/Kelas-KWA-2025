@@ -67,3 +67,7 @@ Challenge **Login Admin** menunjukkan bagaimana sebuah form login yang tidak ama
 - Payload `' OR '1'='1' --` membuat kondisi **WHERE** selalu bernilai benar:
   ```sql
   SELECT * FROM Users WHERE email = '' OR '1'='1' -- ' AND password = 'xyz';
+  ```
+- Bagian -- mengomentari sisa query sehingga password diabaikan.
+- Akibatnya, aplikasi menganggap login valid dan memberikan akses
+
