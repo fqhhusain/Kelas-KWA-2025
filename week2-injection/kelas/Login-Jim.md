@@ -72,4 +72,6 @@ Challenge **Login Bender** menunjukkan bagaimana sebuah form login yang tidak am
   SELECT * FROM Users 
   WHERE email = 'jim@juice-sh.op' -- ' 
   AND password = 'xyz';
-
+  ```
+- Bagian -- mengomentari sisa query sehingga password diabaikan.
+- Akibatnya, aplikasi menganggap login valid dan memberikan akses
