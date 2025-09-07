@@ -44,6 +44,9 @@ https://github.com/juice-shop/juice-shop
 
 <img width="1896" height="906" alt="image" src="https://github.com/user-attachments/assets/fe248089-2403-474d-80c7-f321a10e644e" />
 
+<img width="1919" height="809" alt="image" src="https://github.com/user-attachments/assets/cd4706dc-6840-45ed-af26-d302db121618" />
+
+
 # Catatan / Pembelajaran
 
 - Produk yang disembunyikan sering ditandai dengan field seperti deletedAt, bukan benar-benar dihapus.
@@ -55,4 +58,5 @@ Pembelajaran utama:
 - Soft delete tidak aman bila query rentan.
 - UNION-based SQLi dapat dipakai untuk exfiltrasi maupun manipulasi bisnis.
 - Mitigasi: gunakan prepared statements dan validasi server-side.
+
 
